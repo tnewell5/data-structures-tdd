@@ -6,4 +6,4 @@ $ npm install mocha -g
 
 $ npm install chai
 
-$ mocha --reporter=nyan main-spec.js
+$ mocha --reporter=nyan tests-spec.js
