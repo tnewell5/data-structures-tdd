@@ -32,6 +32,7 @@ Lists = {
   //and -1 if 2 is lexi greater:
   greaterLexList: function(list1, list2) {
     while (list1) {
+      if (!list2) return 1;
       if (list1.val.charCodeAt(0) > list2.val.charCodeAt(0)) {
         return 1;
       } else if (list1.val.charCodeAt(0) < list2.val.charCodeAt(0)) {
@@ -45,7 +46,7 @@ Lists = {
   }
 };
 
-console.log(new Lists.listNode(25));
+//console.log(new Lists.listNode(25));
 
 // create new singly-linked list:
 var myList = new Lists.listNode(1);
@@ -90,10 +91,10 @@ var list1 = new Lists.listNode('a');
 list1.next = new Lists.listNode('b');
 list1.next.next = new Lists.listNode('c');
 
-var list2 = new Lists.listNode('a');
+var list2 = new Lists.listNode('b');
 list2.next = new Lists.listNode('b');
-list2.next.next = new Lists.listNode('c');
-list2.next.next.next = new Lists.listNode('a');
+//list2.next.next = new Lists.listNode('c');
+//list2.next.next.next = new Lists.listNode('a');
 
 console.log(Lists.greaterLexList(list1, list2));
 
