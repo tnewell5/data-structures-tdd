@@ -27,6 +27,21 @@ Lists = {
       prev = pointer;
       pointer = pointer.next;
     }
+  },
+  //compare 2 linked lists and output 0 if the same, 1 if list 1 is lexi greater,
+  //and -1 if 2 is lexi greater:
+  greaterLexList: function(list1, list2) {
+    while (list1) {
+      if (list1.val.charCodeAt(0) > list2.val.charCodeAt(0)) {
+        return 1;
+      } else if (list1.val.charCodeAt(0) < list2.val.charCodeAt(0)) {
+        return -1;
+      }
+      list1 = list1.next;
+      list2 = list2.next;
+    }
+    if (list2) return -1;
+    return 0;
   }
 };
 
@@ -71,5 +86,15 @@ myList = myList.previous;
 Lists.deleteNode(3);
 //console.log('myList: ', myList);
 
+var list1 = new Lists.listNode('a');
+list1.next = new Lists.listNode('b');
+list1.next.next = new Lists.listNode('c');
+
+var list2 = new Lists.listNode('a');
+list2.next = new Lists.listNode('b');
+list2.next.next = new Lists.listNode('c');
+list2.next.next.next = new Lists.listNode('a');
+
+console.log(Lists.greaterLexList(list1, list2));
 
 module.exports = Lists;
